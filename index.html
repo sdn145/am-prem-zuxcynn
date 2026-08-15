@@ -1,0 +1,1060 @@
+<!doctype html>
+<html lang="id">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>am Prem by ZUXCYN</title>
+
+<style>
+*{box-sizing:border-box}
+
+body{
+  margin:0;
+  background:#070707;
+  color:#fff;
+  font-family:Arial,sans-serif
+}
+
+.wrap{
+  max-width:1000px;
+  margin:auto;
+  padding:24px 16px 50px
+}
+
+nav{
+  display:flex;
+  justify-content:space-between;
+  align-items:center;
+  margin-bottom:45px
+}
+
+.brand{
+  display:flex;
+  align-items:center;
+  gap:12px;
+  font-size:23px;
+  font-weight:900
+}
+
+.brand img{
+  width:50px;
+  height:50px;
+  border-radius:50%;
+  object-fit:cover;
+  border:2px solid #fff
+}
+
+.brand small{
+  display:block;
+  color:#888;
+  font-size:10px;
+  letter-spacing:1px
+}
+
+.pill{
+  border:1px solid #333;
+  border-radius:30px;
+  padding:8px 12px;
+  color:#aaa;
+  font-size:11px
+}
+
+.hero{
+  text-align:center
+}
+
+.hero h1{
+  font-size:clamp(42px,8vw,70px);
+  letter-spacing:-3px;
+  margin:0
+}
+
+.hero h1 span{
+  color:#888
+}
+
+.hero p{
+  color:#999;
+  line-height:1.6;
+  max-width:650px;
+  margin:12px auto 28px
+}
+
+.tabs{
+  display:flex;
+  gap:7px;
+  background:#0e0e0e;
+  border:1px solid #292929;
+  padding:6px;
+  border-radius:14px;
+  max-width:720px;
+  margin:auto auto 20px
+}
+
+.tab{
+  flex:1;
+  border:0;
+  border-radius:9px;
+  padding:12px;
+  background:transparent;
+  color:#888;
+  font-weight:bold;
+  cursor:pointer
+}
+
+.tab.active{
+  background:#fff;
+  color:#000
+}
+
+.panel{
+  display:none
+}
+
+.panel.active{
+  display:block
+}
+
+.grid{
+  display:grid;
+  grid-template-columns:1fr 1fr;
+  gap:18px
+}
+
+.card{
+  background:#111;
+  border:1px solid #292929;
+  border-radius:20px;
+  padding:23px
+}
+
+.card h2{
+  margin-top:0
+}
+
+.price{
+  font-size:40px;
+  font-weight:900
+}
+
+.price small{
+  font-size:13px;
+  color:#777;
+  font-weight:normal
+}
+
+label{
+  display:block;
+  color:#aaa;
+  font-size:13px;
+  margin:15px 0 7px
+}
+
+input{
+  width:100%;
+  padding:13px;
+  border:1px solid #333;
+  background:#080808;
+  color:#fff;
+  border-radius:10px
+}
+
+button{
+  border:0;
+  border-radius:10px;
+  padding:13px 15px;
+  font-weight:bold;
+  cursor:pointer
+}
+
+.primary{
+  background:#fff;
+  color:#000
+}
+
+.dark{
+  background:#242424;
+  color:#fff
+}
+
+.full{
+  width:100%;
+  margin-top:13px
+}
+
+.features{
+  display:grid;
+  gap:9px;
+  margin:18px 0
+}
+
+.feature{
+  background:#181818;
+  border-radius:10px;
+  padding:12px;
+  color:#bbb
+}
+
+.feature b{
+  color:#fff
+}
+
+.emailbox{
+  font-family:monospace;
+  font-size:17px;
+  word-break:break-all;
+  background:#090909;
+  border:1px dashed #555;
+  padding:14px;
+  border-radius:11px
+}
+
+.row{
+  display:flex;
+  gap:8px;
+  margin-top:10px
+}
+
+.row button{
+  flex:1
+}
+
+.inbox{
+  margin-top:14px;
+  border:1px solid #292929;
+  border-radius:11px;
+  overflow:hidden
+}
+
+.inboxhead{
+  background:#181818;
+  padding:10px;
+  color:#888;
+  font-size:11px
+}
+
+.message{
+  padding:13px;
+  color:#888;
+  font-size:12px
+}
+
+.status{
+  margin-top:13px;
+  padding:11px;
+  border-radius:10px;
+  background:#181818;
+  color:#aaa;
+  font-size:12px
+}
+
+.notice{
+  color:#777;
+  font-size:11px;
+  line-height:1.6;
+  margin-top:14px
+}
+
+.order{
+  display:none;
+  margin-top:16px;
+  border:1px solid #333;
+  border-radius:12px;
+  padding:14px
+}
+
+.order strong{
+  font-family:monospace
+}
+
+.footer{
+  text-align:center;
+  color:#666;
+  font-size:11px;
+  margin-top:30px
+}
+
+@media(max-width:700px){
+  .grid{
+    grid-template-columns:1fr
+  }
+
+  .pill{
+    display:none
+  }
+}
+</style>
+</head>
+
+<body>
+
+<div class="wrap">
+
+<nav>
+
+<div class="brand">
+
+<img src="zuxcyn.jpg" alt="ZUXCYN">
+
+<div>
+am Prem
+<small>by: ZUXCYN</small>
+</div>
+
+</div>
+
+<div class="pill">
+PREMIUM • 1 TAHUN
+</div>
+
+</nav>
+
+
+<section class="hero">
+
+<h1>
+am Prem <span>Generator</span>
+</h1>
+
+<p>
+TempMail dan pengelolaan order AM Premium dalam satu website.
+</p>
+
+</section>
+
+
+<div class="tabs">
+
+<button
+class="tab active"
+onclick="tab('mail',this)">
+TempMail
+</button>
+
+<button
+class="tab"
+onclick="tab('premium',this)">
+AM Premium
+</button>
+
+<button
+class="tab"
+onclick="tab('owner',this)">
+Owner
+</button>
+
+</div>
+
+
+
+<!-- TEMP MAIL -->
+
+<section id="mail" class="panel active">
+
+<div class="grid">
+
+<div class="card">
+
+<h2>TempMail</h2>
+
+<p style="color:#888">
+Buat alamat sementara untuk identitas order.
+</p>
+
+<button
+class="primary full"
+onclick="genMail()">
+GENERATE EMAIL
+</button>
+
+
+<div id="mailResult" style="display:none">
+
+<label>
+Email aktif
+</label>
+
+<div
+class="emailbox"
+id="tempEmail">
+-
+</div>
+
+
+<div class="row">
+
+<button
+class="dark"
+onclick="copyMail()">
+Copy Email
+</button>
+
+<button
+class="dark"
+onclick="refreshInbox()">
+Refresh
+</button>
+
+</div>
+
+
+<div class="inbox">
+
+<div class="inboxhead">
+INBOX
+</div>
+
+<div
+class="message"
+id="inbox">
+Belum ada pesan.
+</div>
+
+</div>
+
+</div>
+
+
+<div class="notice">
+
+Ini adalah generator frontend/demo.
+Inbox email sungguhan memerlukan backend
+dan layanan/domain email.
+
+</div>
+
+</div>
+
+
+<div class="card">
+
+<h2>
+Email Aktif
+</h2>
+
+<div
+class="status"
+id="mailStatus">
+Belum ada email.
+</div>
+
+<button
+class="dark full"
+onclick="goPremium()">
+LANJUT KE AM PREMIUM →
+</button>
+
+</div>
+
+</div>
+
+</section>
+
+
+
+<!-- PREMIUM -->
+
+<section id="premium" class="panel">
+
+<div class="grid">
+
+<div class="card">
+
+<h2>
+AM Premium — 1 Tahun
+</h2>
+
+<div class="price">
+Rp1.000
+<small>/ lisensi</small>
+</div>
+
+
+<div class="features">
+
+<div class="feature">
+✓ Masa akses <b>1 tahun</b>
+</div>
+
+<div class="feature">
+✓ Email order tercatat
+</div>
+
+<div class="feature">
+✓ Link akses setelah diproses owner
+</div>
+
+</div>
+
+
+<label>
+Email pembeli
+</label>
+
+<input
+id="buyerEmail"
+placeholder="Generate TempMail atau masukkan email">
+
+
+<label>
+Nama pembeli (opsional)
+</label>
+
+<input
+id="buyerName"
+placeholder="Nama">
+
+
+<button
+class="primary full"
+onclick="order()">
+BUAT ORDER — Rp1.000
+</button>
+
+
+<div
+class="order"
+id="order">
+
+<div style="color:#777;font-size:10px">
+ORDER ID
+</div>
+
+<strong id="oid">
+-
+</strong>
+
+<div
+class="status"
+id="ostat">
+Menunggu proses owner.
+</div>
+
+
+<button
+class="dark full"
+id="access"
+style="display:none"
+onclick="openAccess()">
+MASUK ALIGHT MOTION
+</button>
+
+</div>
+
+
+<div class="notice">
+
+Gunakan hanya akses Premium yang sah
+dan memang kamu berhak distribusikan.
+Website ini tidak menyimpan password
+atau session Alight Motion.
+
+</div>
+
+</div>
+
+
+
+<div class="card">
+
+<h2>
+Cara Pembelian
+</h2>
+
+<div class="features">
+
+<div class="feature">
+<b>01.</b>
+Generate TempMail.
+</div>
+
+<div class="feature">
+<b>02.</b>
+Masukkan email ke order.
+</div>
+
+<div class="feature">
+<b>03.</b>
+Selesaikan pembayaran melalui
+metode yang kamu sediakan.
+</div>
+
+<div class="feature">
+<b>04.</b>
+Owner memproses order.
+</div>
+
+<div class="feature">
+<b>05.</b>
+Tombol
+<b>MASUK ALIGHT MOTION</b>
+muncul setelah link akses sah diberikan.
+</div>
+
+</div>
+
+</div>
+
+</div>
+
+</section>
+
+
+
+<!-- OWNER -->
+
+<section id="owner" class="panel">
+
+<div class="grid">
+
+<div class="card">
+
+<h2>
+Owner — ZUXCYN
+</h2>
+
+<p style="color:#888">
+Demo dashboard lokal.
+</p>
+
+
+<label>
+Order ID
+</label>
+
+<input
+id="ownerId"
+placeholder="ZUX-123456">
+
+
+<label>
+Link akses resmi
+</label>
+
+<input
+id="ownerLink"
+placeholder="https://...">
+
+
+<button
+class="primary full"
+onclick="grant()">
+BERIKAN AKSES
+</button>
+
+
+<div class="notice">
+
+Versi ini memakai localStorage.
+Untuk penjualan nyata dengan banyak
+pembeli, gunakan backend/database.
+
+</div>
+
+</div>
+
+
+<div class="card">
+
+<h2>
+Status
+</h2>
+
+<div
+class="status"
+id="sys">
+Belum ada order.
+</div>
+
+
+<button
+class="dark full"
+onclick="resetDemo()">
+RESET DEMO
+</button>
+
+</div>
+
+</div>
+
+</section>
+
+
+<div class="footer">
+am Prem by: ZUXCYN • 2026
+</div>
+
+</div>
+
+
+
+<script>
+
+const KEY="zux_orders_v3";
+
+let current=null;
+
+
+
+function tab(id,b){
+
+document
+.querySelectorAll(".panel")
+.forEach(x=>x.classList.remove("active"));
+
+document
+.querySelectorAll(".tab")
+.forEach(x=>x.classList.remove("active"));
+
+document
+.getElementById(id)
+.classList.add("active");
+
+b.classList.add("active");
+
+}
+
+
+
+function goPremium(){
+
+tab(
+"premium",
+document.querySelectorAll(".tab")[1]
+);
+
+}
+
+
+
+function rand(n){
+
+let c="abcdefghijklmnopqrstuvwxyz0123456789";
+
+let s="";
+
+for(let i=0;i<n;i++){
+
+s+=c[
+Math.floor(
+Math.random()*c.length
+)
+];
+
+}
+
+return s;
+
+}
+
+
+
+function genMail(){
+
+let e=
+rand(10)+
+"@temp-zuxcyn.local";
+
+localStorage.setItem(
+"zux_mail",
+e
+);
+
+document
+.getElementById("mailResult")
+.style.display="block";
+
+document
+.getElementById("tempEmail")
+.textContent=e;
+
+document
+.getElementById("mailStatus")
+.textContent=
+"Email aktif: "+e;
+
+document
+.getElementById("buyerEmail")
+.value=e;
+
+}
+
+
+
+function copyMail(){
+
+let email=
+document
+.getElementById("tempEmail")
+.textContent;
+
+if(navigator.clipboard){
+
+navigator.clipboard.writeText(email);
+
+}
+
+alert("Email disalin.");
+
+}
+
+
+
+function refreshInbox(){
+
+document
+.getElementById("inbox")
+.textContent=
+"Belum ada pesan. Inbox nyata memerlukan backend email.";
+
+}
+
+
+
+function orders(){
+
+return JSON.parse(
+localStorage.getItem(KEY)||"[]"
+);
+
+}
+
+
+
+function save(a){
+
+localStorage.setItem(
+KEY,
+JSON.stringify(a)
+);
+
+}
+
+
+
+function order(){
+
+let e=
+document
+.getElementById("buyerEmail")
+.value
+.trim();
+
+if(!e){
+
+alert(
+"Masukkan atau generate email."
+);
+
+return;
+
+}
+
+
+let id=
+"ZUX-"+
+Date.now()
+.toString()
+.slice(-8);
+
+
+let x={
+
+id:id,
+
+email:e,
+
+name:
+document
+.getElementById("buyerName")
+.value
+.trim()||"Guest",
+
+access:"",
+
+status:
+"Menunggu proses owner"
+
+};
+
+
+let a=orders();
+
+a.push(x);
+
+save(a);
+
+current=x;
+
+
+document
+.getElementById("order")
+.style.display="block";
+
+document
+.getElementById("oid")
+.textContent=id;
+
+document
+.getElementById("ostat")
+.textContent=x.status;
+
+document
+.getElementById("access")
+.style.display="none";
+
+document
+.getElementById("sys")
+.textContent=
+"Order aktif: "+id;
+
+}
+
+
+
+function grant(){
+
+let id=
+document
+.getElementById("ownerId")
+.value
+.trim();
+
+let link=
+document
+.getElementById("ownerLink")
+.value
+.trim();
+
+
+if(!id||!link){
+
+alert(
+"Isi Order ID dan link."
+);
+
+return;
+
+}
+
+
+let a=orders();
+
+let x=
+a.find(
+v=>v.id===id
+);
+
+
+if(!x){
+
+alert(
+"Order tidak ditemukan di browser ini."
+);
+
+return;
+
+}
+
+
+x.access=link;
+
+x.status=
+"Akses tersedia";
+
+save(a);
+
+
+if(current&&current.id===id){
+
+current=x;
+
+document
+.getElementById("ostat")
+.textContent=x.status;
+
+document
+.getElementById("access")
+.style.display="block";
+
+}
+
+
+document
+.getElementById("sys")
+.textContent=
+"Akses diberikan untuk "+id;
+
+alert(
+"Akses berhasil diberikan."
+);
+
+}
+
+
+
+function openAccess(){
+
+if(
+current&&
+current.access
+){
+
+location.href=
+current.access;
+
+}
+
+else{
+
+alert(
+"Akses belum diberikan."
+);
+
+}
+
+}
+
+
+
+function resetDemo(){
+
+localStorage.removeItem(KEY);
+
+localStorage.removeItem("zux_mail");
+
+location.reload();
+
+}
+
+
+
+let m=
+localStorage.getItem("zux_mail");
+
+
+if(m){
+
+document
+.getElementById("mailResult")
+.style.display="block";
+
+document
+.getElementById("tempEmail")
+.textContent=m;
+
+document
+.getElementById("mailStatus")
+.textContent=
+"Email aktif: "+m;
+
+document
+.getElementById("buyerEmail")
+.value=m;
+
+}
+
+</script>
+
+</body>
+</html>

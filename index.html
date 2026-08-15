@@ -1,0 +1,455 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Alight Motion Premium - Zuxcyn</title>
+
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+      font-family: Arial, Helvetica, sans-serif;
+    }
+
+    body {
+      min-height: 100vh;
+      background:
+        radial-gradient(circle at top, #24104d, #090014 45%, #030006);
+      color: white;
+      padding: 25px 15px;
+      overflow-x: hidden;
+    }
+
+    .rgb {
+      animation: rgb 5s linear infinite;
+    }
+
+    @keyframes rgb {
+      0%   { box-shadow: 0 0 15px #ff0000, 0 0 35px #ff0000; }
+      25%  { box-shadow: 0 0 15px #00ff00, 0 0 35px #00ff00; }
+      50%  { box-shadow: 0 0 15px #00ffff, 0 0 35px #00ffff; }
+      75%  { box-shadow: 0 0 15px #0000ff, 0 0 35px #0000ff; }
+      100% { box-shadow: 0 0 15px #ff00ff, 0 0 35px #ff00ff; }
+    }
+
+    .container {
+      width: 100%;
+      max-width: 1000px;
+      margin: auto;
+    }
+
+    .profile {
+      text-align: center;
+      margin-bottom: 25px;
+    }
+
+    .profile img {
+      width: 130px;
+      height: 130px;
+      object-fit: cover;
+      border-radius: 50%;
+      border: 4px solid white;
+      animation: rgb 5s linear infinite;
+    }
+
+    h1 {
+      margin-top: 15px;
+      font-size: 30px;
+      background: linear-gradient(90deg,#ff00cc,#00ffff,#00ff66,#ffea00);
+      -webkit-background-clip: text;
+      color: transparent;
+    }
+
+    .subtitle {
+      color: #bbb;
+      margin-top: 8px;
+    }
+
+    .tiktok {
+      display: inline-block;
+      margin-top: 15px;
+      padding: 12px 22px;
+      border-radius: 12px;
+      background: #111;
+      color: white;
+      text-decoration: none;
+      border: 1px solid #444;
+      transition: .25s;
+    }
+
+    .tiktok:hover {
+      transform: scale(1.05);
+      border-color: #ff00cc;
+    }
+
+    .card {
+      background: rgba(20, 15, 30, .88);
+      border: 1px solid rgba(255,255,255,.1);
+      border-radius: 20px;
+      padding: 25px;
+      margin-top: 20px;
+      backdrop-filter: blur(12px);
+    }
+
+    .card h2 {
+      margin-bottom: 15px;
+      color: #fff;
+    }
+
+    .description {
+      line-height: 1.7;
+      color: #ccc;
+    }
+
+    .pricing {
+      display: grid;
+      grid-template-columns: repeat(3,1fr);
+      gap: 15px;
+      margin-top: 20px;
+    }
+
+    .price {
+      background: #100b18;
+      border-radius: 16px;
+      padding: 20px;
+      text-align: center;
+      border: 1px solid #29202f;
+      transition: .25s;
+    }
+
+    .price:hover {
+      transform: translateY(-5px);
+    }
+
+    .price h3 {
+      margin-bottom: 10px;
+    }
+
+    .nominal {
+      font-size: 25px;
+      font-weight: bold;
+      color: #00ffff;
+    }
+
+    .btn {
+      border: none;
+      padding: 13px 20px;
+      margin-top: 15px;
+      border-radius: 12px;
+      color: white;
+      background: #16111c;
+      cursor: pointer;
+      font-weight: bold;
+      transition: .2s;
+    }
+
+    .btn:hover {
+      transform: scale(1.04);
+    }
+
+    .generator {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 20px;
+    }
+
+    .section {
+      background: #0e0915;
+      border-radius: 16px;
+      padding: 20px;
+      border: 1px solid #251c2c;
+    }
+
+    .section h3 {
+      margin-bottom: 10px;
+    }
+
+    input {
+      width: 100%;
+      padding: 13px;
+      border-radius: 10px;
+      border: 1px solid #3a3042;
+      background: #08050b;
+      color: white;
+      outline: none;
+      margin-top: 10px;
+    }
+
+    select {
+      width: 100%;
+      padding: 13px;
+      margin-top: 10px;
+      border-radius: 10px;
+      background: #08050b;
+      color: white;
+      border: 1px solid #3a3042;
+    }
+
+    .result {
+      margin-top: 15px;
+      padding: 13px;
+      border-radius: 10px;
+      background: #050308;
+      color: #aaa;
+      word-break: break-all;
+      min-height: 45px;
+    }
+
+    .warning {
+      margin-top: 15px;
+      padding: 13px;
+      border-radius: 10px;
+      background: rgba(255,180,0,.08);
+      border: 1px solid rgba(255,180,0,.25);
+      color: #ffd66b;
+      font-size: 13px;
+      line-height: 1.5;
+    }
+
+    footer {
+      text-align: center;
+      color: #777;
+      margin-top: 30px;
+      padding-bottom: 20px;
+    }
+
+    @media(max-width:700px) {
+      .pricing,
+      .generator {
+        grid-template-columns: 1fr;
+      }
+
+      h1 {
+        font-size: 25px;
+      }
+    }
+  </style>
+</head>
+
+<body>
+
+<div class="container">
+
+  <!-- PROFILE -->
+  <div class="profile">
+    <!-- Letakkan zuxcyn.jpg satu folder dengan index.html -->
+    <img src="zuxcyn.jpg" alt="Zuxcyn">
+
+    <h1>Alight Motion Premium</h1>
+    <p class="subtitle">Premium Service by Zuxcyn</p>
+
+    <a
+      class="tiktok rgb"
+      href="https://www.tiktok.com/@zuxcynn?_r=1&_t=ZS-98ullWCIb8X"
+      target="_blank"
+      rel="noopener noreferrer"
+    >
+      Follow Tiktok Zuxcyn
+    </a>
+  </div>
+
+
+  <!-- DESCRIPTION -->
+  <div class="card">
+    <h2>✨ Alight Motion Premium</h2>
+
+    <p class="description">
+      Nikmati pengalaman editing yang lebih nyaman dengan Alight Motion
+      Premium. Cocok untuk kamu yang suka membuat video, motion graphic,
+      velocity, efek visual, dan berbagai karya kreatif lainnya.
+      Pilih paket yang sesuai dengan kebutuhanmu dan gunakan layanan
+      melalui proses resmi dan aman.
+    </p>
+  </div>
+
+
+  <!-- PRICE -->
+  <div class="card">
+    <h2>💎 Pilihan Paket</h2>
+
+    <div class="pricing">
+
+      <div class="price">
+        <h3>1 Minggu</h3>
+        <div class="nominal">100P</div>
+        <button class="btn rgb" onclick="selectPackage('1 Minggu',100)">
+          Pilih Paket
+        </button>
+      </div>
+
+      <div class="price">
+        <h3>1 Bulan</h3>
+        <div class="nominal">500P</div>
+        <button class="btn rgb" onclick="selectPackage('1 Bulan',500)">
+          Pilih Paket
+        </button>
+      </div>
+
+      <div class="price">
+        <h3>1 Tahun</h3>
+        <div class="nominal">1K</div>
+        <button class="btn rgb" onclick="selectPackage('1 Tahun',1000)">
+          Pilih Paket
+        </button>
+      </div>
+
+    </div>
+
+    <div id="selectedPackage" class="result">
+      Belum memilih paket.
+    </div>
+  </div>
+
+
+  <!-- GENERATOR -->
+  <div class="card">
+    <h2>⚡ AM Generator</h2>
+
+    <div class="generator">
+
+      <!-- BAGIAN 1 -->
+      <div class="section">
+        <h3>📧 Temp Mail</h3>
+
+        <p class="description">
+          Pilih paket untuk proses pembuatan alamat email sementara
+          melalui layanan email yang kamu gunakan secara resmi.
+        </p>
+
+        <select id="emailPackage">
+          <option value="100">Mingguan — 100P</option>
+          <option value="500">1 Bulan — 500P</option>
+          <option value="1000">1 Tahun — 1K</option>
+        </select>
+
+        <button class="btn rgb" onclick="generateEmail()">
+          Generate Email
+        </button>
+
+        <div id="emailResult" class="result">
+          Email belum dibuat.
+        </div>
+
+        <div class="warning">
+          Demo frontend: tombol ini tidak membuat akun atau melewati
+          sistem verifikasi layanan pihak ketiga.
+        </div>
+      </div>
+
+
+      <!-- BAGIAN 2 -->
+      <div class="section">
+        <h3>💎 AM Prem</h3>
+
+        <p class="description">
+          Masukkan email milikmu untuk melanjutkan proses aktivasi
+          melalui sistem resmi.
+        </p>
+
+        <input
+          id="userEmail"
+          type="email"
+          placeholder="Masukkan email..."
+        >
+
+        <button class="btn rgb" onclick="activatePremium()">
+          Lanjutkan Aktivasi
+        </button>
+
+        <div id="activationResult" class="result">
+          Belum ada email.
+        </div>
+      </div>
+
+    </div>
+  </div>
+
+
+  <!-- FEATURES -->
+  <div class="card">
+    <h2>🚀 Fitur Premium</h2>
+
+    <p class="description">
+      ✓ Pengalaman editing lebih lengkap<br>
+      ✓ Cocok untuk video creator<br>
+      ✓ Motion graphic dan efek visual<br>
+      ✓ Workflow editing yang lebih nyaman<br>
+      ✓ Pilihan paket fleksibel<br>
+      ✓ Tampilan website RGB modern<br>
+      ✓ Responsive untuk HP dan PC
+    </p>
+  </div>
+
+
+  <footer>
+    © 2026 Zuxcyn — Alight Motion Premium
+  </footer>
+
+</div>
+
+
+<script>
+
+  function selectPackage(name, price) {
+    document.getElementById("selectedPackage").innerHTML =
+      "Paket dipilih: <b>" + name + "</b> — " + price + "P";
+  }
+
+
+  /*
+   * Demo generator email.
+   * Untuk produksi, hubungkan tombol ini ke API temp-mail
+   * yang memang kamu miliki/berwenang gunakan.
+   */
+  function generateEmail() {
+
+    const price =
+      document.getElementById("emailPackage").value;
+
+    const random =
+      Math.random().toString(36).substring(2,10);
+
+    const demoEmail =
+      "user-" + random + "@example.com";
+
+    document.getElementById("emailResult").innerHTML =
+      "Email demo: <b>" + demoEmail +
+      "</b><br><small>Paket: " + price + "P</small>";
+  }
+
+
+  function activatePremium() {
+
+    const email =
+      document.getElementById("userEmail").value.trim();
+
+    const result =
+      document.getElementById("activationResult");
+
+    if (!email) {
+      result.innerHTML =
+        "⚠️ Masukkan email terlebih dahulu.";
+      return;
+    }
+
+    result.innerHTML =
+      "Email diterima: <b>" + escapeHTML(email) +
+      "</b><br>Silakan lanjutkan aktivasi melalui sistem resmi.";
+  }
+
+
+  function escapeHTML(text) {
+    return text
+      .replaceAll("&", "&amp;")
+      .replaceAll("<", "&lt;")
+      .replaceAll(">", "&gt;")
+      .replaceAll('"', "&quot;")
+      .replaceAll("'", "&#039;");
+  }
+
+</script>
+
+</body>
+</html>

@@ -1,0 +1,903 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>AM Premium by Zuxcyn</title>
+
+<style>
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+    font-family: Arial, sans-serif;
+}
+
+body {
+    min-height: 100vh;
+    background:
+        radial-gradient(circle at top, #24104d 0%, #090912 45%, #030307 100%);
+    color: white;
+    overflow-x: hidden;
+}
+
+/* RGB background */
+body::before {
+    content: "";
+    position: fixed;
+    inset: -50%;
+    background: conic-gradient(
+        #ff004c,
+        #8a00ff,
+        #00eaff,
+        #00ff88,
+        #fff000,
+        #ff004c
+    );
+    filter: blur(100px);
+    opacity: .12;
+    animation: rgbMove 8s linear infinite;
+    pointer-events: none;
+    z-index: -1;
+}
+
+@keyframes rgbMove {
+    0% { transform: rotate(0deg); }
+    100% { transform: rotate(360deg); }
+}
+
+.container {
+    width: 94%;
+    max-width: 900px;
+    margin: auto;
+    padding: 25px 0 50px;
+}
+
+/* Header */
+.header {
+    text-align: center;
+    margin-bottom: 25px;
+}
+
+.profile {
+    width: 110px;
+    height: 110px;
+    border-radius: 50%;
+    object-fit: cover;
+    border: 3px solid transparent;
+
+    background:
+        linear-gradient(#111,#111) padding-box,
+        linear-gradient(90deg,
+            #ff0055,
+            #7b00ff,
+            #00eaff,
+            #00ff88,
+            #ff0055
+        ) border-box;
+
+    box-shadow:
+        0 0 15px #ff0055,
+        0 0 30px #7200ff,
+        0 0 45px #00eaff;
+
+    animation: profileRGB 3s linear infinite;
+}
+
+@keyframes profileRGB {
+    0% {
+        filter: drop-shadow(0 0 8px #ff0055);
+    }
+    33% {
+        filter: drop-shadow(0 0 12px #7b00ff);
+    }
+    66% {
+        filter: drop-shadow(0 0 12px #00eaff);
+    }
+    100% {
+        filter: drop-shadow(0 0 8px #ff0055);
+    }
+}
+
+.title {
+    margin-top: 15px;
+    font-size: 28px;
+    font-weight: bold;
+}
+
+.rgb-text {
+    background: linear-gradient(
+        90deg,
+        #ff0055,
+        #9b00ff,
+        #00eaff,
+        #00ff88,
+        #ffea00,
+        #ff0055
+    );
+    background-size: 300%;
+    -webkit-background-clip: text;
+    color: transparent;
+    animation: textRGB 5s linear infinite;
+}
+
+@keyframes textRGB {
+    0% { background-position: 0%; }
+    100% { background-position: 300%; }
+}
+
+.subtitle {
+    color: #aaa;
+    margin-top: 7px;
+}
+
+/* Navigation */
+.nav {
+    display: flex;
+    gap: 10px;
+    margin: 25px 0 15px;
+}
+
+.nav button {
+    flex: 1;
+    padding: 13px;
+    border: 1px solid #333;
+    border-radius: 12px;
+    background: #11111b;
+    color: white;
+    cursor: pointer;
+    transition: .25s;
+}
+
+.nav button:hover,
+.nav button.active {
+    border-color: #00eaff;
+    box-shadow:
+        0 0 10px #00eaff55,
+        inset 0 0 10px #00eaff11;
+}
+
+/* Card */
+.card {
+    background: rgba(13,13,24,.88);
+    border: 1px solid #29293d;
+    border-radius: 18px;
+    padding: 22px;
+    margin-top: 15px;
+    box-shadow:
+        0 0 20px #000,
+        0 0 25px rgba(0,234,255,.05);
+    backdrop-filter: blur(12px);
+}
+
+.card h2 {
+    margin-bottom: 8px;
+}
+
+.description {
+    color: #999;
+    font-size: 14px;
+    line-height: 1.5;
+    margin-bottom: 18px;
+}
+
+input {
+    width: 100%;
+    padding: 14px;
+    border-radius: 10px;
+    border: 1px solid #333;
+    outline: none;
+    background: #080811;
+    color: white;
+    margin-bottom: 10px;
+}
+
+input:focus {
+    border-color: #00eaff;
+    box-shadow: 0 0 10px #00eaff33;
+}
+
+button.primary {
+    width: 100%;
+    padding: 14px;
+    border: none;
+    border-radius: 10px;
+    color: white;
+    font-weight: bold;
+    cursor: pointer;
+
+    background: linear-gradient(
+        90deg,
+        #ff0055,
+        #7b00ff,
+        #00bfff
+    );
+
+    background-size: 200%;
+    animation: buttonRGB 4s linear infinite;
+    box-shadow: 0 0 15px #7b00ff55;
+}
+
+@keyframes buttonRGB {
+    0% { background-position: 0%; }
+    100% { background-position: 200%; }
+}
+
+button.primary:hover {
+    transform: translateY(-1px);
+    box-shadow:
+        0 0 15px #00eaff66,
+        0 0 25px #7b00ff44;
+}
+
+button:disabled {
+    opacity: .4;
+    cursor: not-allowed;
+    animation: none;
+}
+
+.copy {
+    margin-top: 8px;
+}
+
+.email-box {
+    display: flex;
+    gap: 8px;
+}
+
+.email-box input {
+    margin: 0;
+}
+
+.small-btn {
+    min-width: 90px;
+    border-radius: 10px;
+    border: 1px solid #333;
+    background: #171722;
+    color: white;
+    cursor: pointer;
+}
+
+.small-btn:hover {
+    border-color: #00eaff;
+}
+
+.mail-result {
+    margin-top: 15px;
+    padding: 15px;
+    border-radius: 12px;
+    background: #080811;
+    border: 1px solid #29293d;
+    display: none;
+}
+
+.status {
+    margin-top: 15px;
+    padding: 13px;
+    border-radius: 10px;
+    background: #171722;
+    color: #aaa;
+    text-align: center;
+}
+
+.status.pending {
+    border: 1px solid #ffcc00;
+    color: #ffcc00;
+}
+
+.status.approved {
+    border: 1px solid #00ff88;
+    color: #00ff88;
+    box-shadow: 0 0 12px #00ff8833;
+}
+
+.status.rejected {
+    border: 1px solid #ff0055;
+    color: #ff5577;
+}
+
+.info {
+    margin-top: 15px;
+    padding: 13px;
+    background: #10101b;
+    border-left: 3px solid #00eaff;
+    border-radius: 7px;
+    font-size: 13px;
+    color: #aaa;
+    line-height: 1.5;
+}
+
+.hidden {
+    display: none;
+}
+
+.footer {
+    text-align: center;
+    color: #666;
+    font-size: 12px;
+    margin-top: 35px;
+}
+</style>
+</head>
+
+<body>
+
+<div class="container">
+
+    <header class="header">
+
+        <!-- Pastikan file zuxcyn.jpg berada di folder yang sama -->
+        <img
+            src="zuxcyn.jpg"
+            alt="Zuxcyn"
+            class="profile"
+            onerror="this.src='https://via.placeholder.com/110/11111b/ffffff?text=Z'">
+
+        <h1 class="title rgb-text">
+            AM PREMIUM
+        </h1>
+
+        <p class="subtitle">
+            by: zuxcyn
+        </p>
+
+    </header>
+
+
+    <!-- NAV -->
+    <div class="nav">
+
+        <button
+            id="tempBtn"
+            class="active"
+            onclick="showPage('temp')">
+            📧 TempMail
+        </button>
+
+        <button
+            id="premBtn"
+            onclick="showPage('prem')">
+            ✨ AM Prem
+        </button>
+
+    </div>
+
+
+    <!-- TEMPMAIL -->
+    <section id="tempPage">
+
+        <div class="card">
+
+            <h2>📧 TempMail</h2>
+
+            <p class="description">
+                Buat alamat email sementara untuk kebutuhan pengujian.
+                Email yang dibuat di sini tidak dimaksudkan untuk melewati
+                sistem keamanan atau verifikasi layanan lain.
+            </p>
+
+            <button
+                class="primary"
+                onclick="generateTempMail()">
+                GENERATE EMAIL
+            </button>
+
+            <div id="mailResult" class="mail-result">
+
+                <b>Email sementara:</b>
+
+                <div class="email-box" style="margin-top:10px">
+
+                    <input
+                        id="generatedEmail"
+                        readonly>
+
+                    <button
+                        class="small-btn"
+                        onclick="copyEmail()">
+                        COPY
+                    </button>
+
+                </div>
+
+                <div
+                    id="mailInfo"
+                    class="info">
+                    Klik "Refresh Inbox" untuk melihat pesan.
+                </div>
+
+                <button
+                    class="primary"
+                    style="margin-top:10px"
+                    onclick="checkInbox()">
+                    REFRESH INBOX
+                </button>
+
+                <div
+                    id="inbox"
+                    style="margin-top:12px">
+                </div>
+
+            </div>
+
+        </div>
+
+    </section>
+
+
+    <!-- AM PREMIUM -->
+    <section id="premPage" class="hidden">
+
+        <div class="card">
+
+            <h2>✨ AM Prem</h2>
+
+            <p class="description">
+                Masukkan email pembeli untuk membuat permintaan akses.
+                Permintaan akan berstatus menunggu sampai owner memberikan
+                persetujuan.
+            </p>
+
+            <input
+                type="email"
+                id="buyerEmail"
+                placeholder="Email pembeli">
+
+            <button
+                class="primary"
+                onclick="submitOrder()">
+                KIRIM PERMINTAAN
+            </button>
+
+            <div
+                id="orderStatus"
+                class="status">
+                Belum ada permintaan.
+            </div>
+
+            <div
+                id="loginArea"
+                class="hidden"
+                style="margin-top:15px">
+
+                <button
+                    id="openAM"
+                    class="primary"
+                    disabled
+                    onclick="openAlightMotion()">
+                    🔒 BUKA ALIGHT MOTION
+                </button>
+
+                <div class="info">
+                    Tombol akan tersedia setelah owner menyetujui
+                    permintaan. Login dilakukan melalui layanan resmi
+                    Alight Motion.
+                </div>
+
+            </div>
+
+        </div>
+
+
+        <!-- OWNER DEMO -->
+        <div class="card">
+
+            <h2>👑 Owner Approval</h2>
+
+            <p class="description">
+                Panel demo untuk simulasi perubahan status pesanan.
+                Dalam website publik, bagian ini harus diamankan dengan
+                autentikasi backend.
+            </p>
+
+            <input
+                type="text"
+                id="ownerKey"
+                placeholder="Owner key">
+
+            <button
+                class="primary"
+                onclick="approveOrder()">
+                APPROVE ORDER
+            </button>
+
+            <div
+                id="ownerStatus"
+                class="status">
+                Owner belum melakukan approval.
+            </div>
+
+        </div>
+
+    </section>
+
+
+    <div class="footer">
+        AM Premium by Zuxcyn • RGB Dashboard
+    </div>
+
+</div>
+
+
+<script>
+
+/* =========================
+   NAVIGATION
+========================= */
+
+function showPage(page) {
+
+    const tempPage = document.getElementById("tempPage");
+    const premPage = document.getElementById("premPage");
+
+    const tempBtn = document.getElementById("tempBtn");
+    const premBtn = document.getElementById("premBtn");
+
+    if (page === "temp") {
+
+        tempPage.classList.remove("hidden");
+        premPage.classList.add("hidden");
+
+        tempBtn.classList.add("active");
+        premBtn.classList.remove("active");
+
+    } else {
+
+        tempPage.classList.add("hidden");
+        premPage.classList.remove("hidden");
+
+        tempBtn.classList.remove("active");
+        premBtn.classList.add("active");
+
+    }
+}
+
+
+/* =========================
+   TEMP MAIL
+========================= */
+
+let tempLogin = "";
+let tempDomain = "";
+let currentEmail = "";
+
+async function generateTempMail() {
+
+    const result = document.getElementById("mailResult");
+    const emailInput = document.getElementById("generatedEmail");
+    const mailInfo = document.getElementById("mailInfo");
+
+    const random =
+        Math.random().toString(36).substring(2, 12);
+
+    tempLogin = "zuxcyn" + random;
+
+    const domains = [
+        "1secmail.com",
+        "1secmail.org",
+        "1secmail.net"
+    ];
+
+    tempDomain =
+        domains[Math.floor(Math.random() * domains.length)];
+
+    currentEmail =
+        tempLogin + "@" + tempDomain;
+
+    emailInput.value = currentEmail;
+
+    result.style.display = "block";
+
+    mailInfo.innerHTML =
+        "Email berhasil dibuat. Gunakan tombol REFRESH INBOX untuk mengecek pesan.";
+
+    document.getElementById("inbox").innerHTML = "";
+
+}
+
+
+async function checkInbox() {
+
+    const inbox = document.getElementById("inbox");
+
+    if (!tempLogin || !tempDomain) {
+        inbox.innerHTML =
+            '<div class="info">Generate email terlebih dahulu.</div>';
+        return;
+    }
+
+    inbox.innerHTML =
+        '<div class="info">Memeriksa inbox...</div>';
+
+    try {
+
+        const url =
+            "https://www.1secmail.com/api/v1/?action=getMessages" +
+            "&login=" + encodeURIComponent(tempLogin) +
+            "&domain=" + encodeURIComponent(tempDomain);
+
+        const response = await fetch(url);
+
+        const messages = await response.json();
+
+        if (!messages.length) {
+
+            inbox.innerHTML =
+                '<div class="info">Belum ada pesan masuk.</div>';
+
+            return;
+        }
+
+        inbox.innerHTML =
+            messages.map(function(message) {
+
+                return `
+                    <div class="info">
+                        <b>${escapeHTML(message.subject || "Tanpa subjek")}</b><br>
+                        Dari: ${escapeHTML(message.from || "-")}<br>
+                        ID: ${escapeHTML(String(message.id))}
+                    </div>
+                `;
+
+            }).join("");
+
+    } catch (error) {
+
+        inbox.innerHTML =
+            '<div class="info">Gagal mengambil inbox. Coba lagi nanti.</div>';
+
+    }
+}
+
+
+function copyEmail() {
+
+    const email =
+        document.getElementById("generatedEmail").value;
+
+    if (!email) return;
+
+    navigator.clipboard.writeText(email);
+
+    const info =
+        document.getElementById("mailInfo");
+
+    info.innerHTML =
+        "Email berhasil disalin.";
+
+}
+
+
+/* =========================
+   AM PREMIUM ORDER
+========================= */
+
+let currentOrder = null;
+
+function submitOrder() {
+
+    const email =
+        document.getElementById("buyerEmail").value.trim();
+
+    const status =
+        document.getElementById("orderStatus");
+
+    if (!email) {
+
+        status.className = "status rejected";
+        status.innerHTML =
+            "Masukkan email terlebih dahulu.";
+
+        return;
+    }
+
+    if (!email.includes("@")) {
+
+        status.className = "status rejected";
+        status.innerHTML =
+            "Format email tidak valid.";
+
+        return;
+    }
+
+    currentOrder = {
+        email: email,
+        status: "pending",
+        created: new Date().toISOString()
+    };
+
+    localStorage.setItem(
+        "zuxcyn_order",
+        JSON.stringify(currentOrder)
+    );
+
+    status.className = "status pending";
+
+    status.innerHTML =
+        "⏳ Permintaan dikirim. Menunggu persetujuan owner.";
+
+    document.getElementById("loginArea")
+        .classList.remove("hidden");
+
+    document.getElementById("openAM").disabled = true;
+
+}
+
+
+/* =========================
+   OWNER APPROVAL
+========================= */
+
+function approveOrder() {
+
+    const key =
+        document.getElementById("ownerKey").value;
+
+    const ownerStatus =
+        document.getElementById("ownerStatus");
+
+    /*
+       DEMO KEY SAJA.
+
+       JANGAN menggunakan sistem ini untuk website produksi.
+       Gunakan backend + authentication.
+    */
+
+    if (key !== "ZUXCYN-OWNER") {
+
+        ownerStatus.className =
+            "status rejected";
+
+        ownerStatus.innerHTML =
+            "Owner key salah.";
+
+        return;
+    }
+
+    if (!currentOrder) {
+
+        const saved =
+            localStorage.getItem("zuxcyn_order");
+
+        if (saved) {
+            currentOrder = JSON.parse(saved);
+        }
+    }
+
+    if (!currentOrder) {
+
+        ownerStatus.className =
+            "status rejected";
+
+        ownerStatus.innerHTML =
+            "Belum ada order.";
+
+        return;
+    }
+
+    currentOrder.status = "approved";
+
+    localStorage.setItem(
+        "zuxcyn_order",
+        JSON.stringify(currentOrder)
+    );
+
+    ownerStatus.className =
+        "status approved";
+
+    ownerStatus.innerHTML =
+        "✅ Order disetujui.";
+
+    document.getElementById("orderStatus").className =
+        "status approved";
+
+    document.getElementById("orderStatus").innerHTML =
+        "✅ Permintaan disetujui oleh owner.";
+
+    document.getElementById("loginArea")
+        .classList.remove("hidden");
+
+    document.getElementById("openAM").disabled = false;
+
+}
+
+
+/* =========================
+   OPEN ALIGHT MOTION
+========================= */
+
+function openAlightMotion() {
+
+    if (!currentOrder ||
+        currentOrder.status !== "approved") {
+
+        alert(
+            "Permintaan belum disetujui owner."
+        );
+
+        return;
+    }
+
+    /*
+       Mengarah ke halaman resmi Alight Motion.
+       Tidak melakukan bypass login atau lisensi.
+    */
+
+    window.open(
+        "https://alightmotion.com/",
+        "_blank"
+    );
+}
+
+
+/* =========================
+   LOAD SAVED ORDER
+========================= */
+
+window.addEventListener("load", function() {
+
+    const saved =
+        localStorage.getItem("zuxcyn_order");
+
+    if (!saved) return;
+
+    try {
+
+        currentOrder = JSON.parse(saved);
+
+        document.getElementById("buyerEmail").value =
+            currentOrder.email || "";
+
+        document.getElementById("loginArea")
+            .classList.remove("hidden");
+
+        if (currentOrder.status === "approved") {
+
+            document.getElementById("orderStatus")
+                .className = "status approved";
+
+            document.getElementById("orderStatus")
+                .innerHTML =
+                "✅ Permintaan sudah disetujui.";
+
+            document.getElementById("openAM")
+                .disabled = false;
+
+        } else {
+
+            document.getElementById("orderStatus")
+                .className = "status pending";
+
+            document.getElementById("orderStatus")
+                .innerHTML =
+                "⏳ Masih menunggu persetujuan owner.";
+        }
+
+    } catch (e) {
+
+        localStorage.removeItem("zuxcyn_order");
+
+    }
+
+});
+
+
+/* =========================
+   SECURITY HELPER
+========================= */
+
+function escapeHTML(value) {
+
+    return String(value)
+        .replaceAll("&", "&amp;")
+        .replaceAll("<", "&lt;")
+        .replaceAll(">", "&gt;")
+        .replaceAll('"', "&quot;")
+        .replaceAll("'", "&#039;");
+
+}
+
+</script>
+
+</body>
+</html>
